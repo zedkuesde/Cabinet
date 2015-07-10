@@ -29,6 +29,7 @@ public class record{
     //img = loadImage("data/"+village+"/visuel.png");
     fillMarqueurTab();
     fillDisplayData();
+    rect(x,y,w,h);
   }
   
   private void fillDisplayData(){
@@ -152,7 +153,7 @@ public class bdd{
   
   for(int i=0; i < tampon.length;i++){
      tampon1 = split(tampon[i],'@');
-     bddData[i][0] = tampon1[0];
+     bddData[i][0] = tampon1[0]; 
      bddData[i][1] = tampon1[1];
   }
 }
@@ -188,6 +189,7 @@ public class display{
 
 void setup(){
   //size(800,600);
+    disp = new display(1280,800,4);
   minim = new Minim(this);
 base = new bdd(bddName);
   /*
@@ -195,19 +197,22 @@ base = new bdd(bddName);
   img[0] = loadImage("data/plaisance/visuel.png");
   img[2] = loadImage("data/romieu/visuel.png");
   */
-  disp = new display(1280,800,4);
+  //disp = new display(1280,800,4);
  testrec = base.getRecordByID(0);  
  println(testrec.getVillage());
  testrec.recordPlay();
 }
 
 void draw(){
-  background(250,250,250);
-  //disp.displayContent(base.recordTab);
-  
+  background(0,0,0);
+  // disp.displayContent(base.recordTab);
+  fill(250);
+  noStroke();
   rect(whereToPutTheReader(testrec.getLength(),testrec.getPosition(),testrec.w)+testrec.x,testrec.y,-1,testrec.h);
 
-  disp.displaySelector();
+  //disp.displaySelector();
+  
+  
 }
 
 public int whereToPutTheReader(int soundLength, int soundPosition, int displaySize){
@@ -238,13 +243,11 @@ void switchRecord(){
 
 void keyPressed(){
   switch(key){
-     case 'a' : recordID = 0; break;
-    case 'z' : recordID = 1; break;
-   case 'e' : recordID = 2; break;
-   case 'r' : recordID = 3; break;
-  default : recordID = 0; 
+     case 'a' : recordID = 0;switchRecord(); break;
+    case 'z' : recordID = 1;switchRecord(); break;
+   case 'e' : recordID = 2;switchRecord(); break;
+   case 'r' : recordID = 3;switchRecord(); break;
   }
-  switchRecord();
 }
 
 void stop()
