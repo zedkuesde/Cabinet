@@ -208,7 +208,7 @@ void draw(){
   // disp.displayContent(base.recordTab);
   fill(250);
   noStroke();
-  rect(whereToPutTheReader(testrec.getLength(),testrec.getPosition(),testrec.w)+testrec.x,testrec.y,-1,testrec.h);
+  rect(whereToPutTheReader(testrec.getLength(),testrec.getPosition(),testrec.w)+testrec.x,testrec.y,8,testrec.h);
 
   //disp.displaySelector();
   
