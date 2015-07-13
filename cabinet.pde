@@ -62,6 +62,10 @@ public class record{
      return audio.position(); 
   }
   
+  public void lOop(){
+    audio.loop();
+    
+  }
   public int getIDCurrentWord(){
      int position = audio.position();
      println("position = "+position);
@@ -201,6 +205,7 @@ base = new bdd(bddName);
  testrec = base.getRecordByID(0);  
  println(testrec.getVillage());
  testrec.recordPlay();
+ testrec.lOop();
 }
 
 void draw(){
@@ -239,6 +244,7 @@ void switchRecord(){
   println(testrec.getVillage());
   println("word number : "+millisecForPlay);
   testrec.recordPlay(millisecForPlay);
+  testrec.lOop();
 }
 
 void keyPressed(){
