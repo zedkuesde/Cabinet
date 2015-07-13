@@ -249,10 +249,10 @@ void switchRecord(){
 
 void keyPressed(){
   switch(key){
-     case 'a' : recordID = 0;switchRecord(); break;
-    case 'z' : recordID = 1;switchRecord(); break;
-   case 'e' : recordID = 2;switchRecord(); break;
-   case 'r' : recordID = 3;switchRecord(); break;
+     case 't' : recordID = 0;switchRecord(); break;
+    case 'j' : recordID = 1;switchRecord(); break;
+   case 'c' : recordID = 2;switchRecord(); break;
+   case 'a' : recordID = 3;switchRecord(); break;
   }
 }
 
