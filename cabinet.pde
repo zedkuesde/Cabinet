@@ -1,9 +1,9 @@
 import ddf.minim.*;
 
-int PosXTexteVillageDe = 10;
-int PosYTexteVillageDe = 30;
-int PosYTexteNomDuVillage = 100;
-int PosXTexteNomDuVillage = 10;
+int PosXTexteVillageDe;
+int PosYTexteVillageDe;
+int PosYTexteNomDuVillage;
+int PosXTexteNomDuVillage;
 
 String bddName = "bdd.txt";
 
@@ -201,6 +201,8 @@ void setup(){
     disp = new display(1280,800,4);
   minim = new Minim(this);
 base = new bdd(bddName);
+
+fillTextVillagePosition();
   /*
   img[1] = loadImage("data/faget/visuel.png");
   img[0] = loadImage("data/plaisance/visuel.png");
@@ -228,6 +230,16 @@ text(testrec.getVillage(), PosXTexteNomDuVillage, PosYTexteNomDuVillage);
   
   
 }
+
+public void fillTextVillagePosition(){
+    String[] stuff = loadStrings("textPosition.txt");
+    int[] tampon = new int[4];
+    tampon = int(split(stuff[0],'@')); 
+    PosXTexteVillageDe = tampon[0];
+    PosYTexteVillageDe = tampon[1];
+    PosXTexteNomDuVillage = tampon[2];
+   PosYTexteNomDuVillage= tampon[3];
+  }
 
 public int whereToPutTheReader(int soundLength, int soundPosition, int displaySize){
   return ((displaySize*soundPosition)/soundLength);
