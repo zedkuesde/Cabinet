@@ -1,5 +1,10 @@
 import ddf.minim.*;
 
+int PosXTexteVillageDe = 10;
+int PosYTexteVillageDe = 30;
+int PosYTexteNomDuVillage = 100;
+int PosXTexteNomDuVillage = 10;
+
 String bddName = "bdd.txt";
 
 Minim minim;
@@ -205,16 +210,20 @@ base = new bdd(bddName);
  testrec = base.getRecordByID(0);  
  println(testrec.getVillage());
  testrec.recordPlay();
- testrec.lOop();
+ //testrec.lOop();
 }
 
 void draw(){
   background(0,0,0);
-  // disp.displayContent(base.recordTab);
+  // disp.displayContent(base.recordTab); //display all sync points
   fill(250);
   noStroke();
   rect(whereToPutTheReader(testrec.getLength(),testrec.getPosition(),testrec.w)+testrec.x,testrec.y,8,testrec.h);
-
+  
+  //display village name
+  textSize(32);
+text("Village de ", PosXTexteVillageDe, PosYTexteVillageDe);
+text(testrec.getVillage(), PosXTexteNomDuVillage, PosYTexteNomDuVillage);
   //disp.displaySelector();
   
   
@@ -244,15 +253,15 @@ void switchRecord(){
   println(testrec.getVillage());
   println("word number : "+millisecForPlay);
   testrec.recordPlay(millisecForPlay);
-  testrec.lOop();
+  //testrec.lOop();
 }
 
 void keyPressed(){
   switch(key){
-     case 't' : recordID = 0;switchRecord(); break;
-    case 'j' : recordID = 1;switchRecord(); break;
-   case 'c' : recordID = 2;switchRecord(); break;
-   case 'a' : recordID = 3;switchRecord(); break;
+     case 't' : recordID = 0; switchRecord(); break;
+    case 'j' : recordID = 1; switchRecord(); break;
+   case 'c' : recordID = 2; switchRecord(); break;
+   case 'a' : recordID = 3; switchRecord(); break;
   }
 }
 
